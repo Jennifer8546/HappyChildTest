@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.vrml.happychildapp">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-feature android:name="android.hardware.camera" android:required="true"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".HYC_Code.StartPage.WelcomeActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/StartPageTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".Choose_Chinese_Math"
+            android:label="@string/Choose_Chinese_Math"
+            android:screenOrientation="landscape"></activity>
+
+        <activity
+            android:name=".Unit1"
+            android:label="@string/Unit1"
+            android:screenOrientation="landscape"></activity>
+
+        <activity
+            android:name=".TurnCardGame.Turn_Card_Game"
+            android:label="@string/TurnGameName"
+            android:screenOrientation="landscape"></activity>
+
+        <activity
+            android:name=".Choose_Mode"
+            android:label="@string/ChooseMode"
+            android:screenOrientation="landscape"></activity>
+
+        <activity
+            android:name=".Choose_Unit"
+            android:label="@string/UntiChoose"
+            android:screenOrientation="landscape">
+
+        </activity>
+        <activity
+            android:name=".Turn_page.turn_page_pratice"
+            android:theme="@style/StartPageTheme"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity android:name=".Scoll.scrollActivity"
+            android:label="Scroll"
+            android:screenOrientation="landscape"
+            android:exported="true">
+
+        </activity>
+
+        <activity
+            android:name=".menu_choose"
+            android:label="@string/Menu"
+            android:screenOrientation="landscape">
+        </activity>
+
+        <activity
+            android:name=".Jennifer_Code.SignUpActivity"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".Jennifer_Code.SignInActivity"
+            android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".Jennifer_Code.ProfileActivity"
+            android:screenOrientation="landscape"></activity>
+
+
+    </application>
+
+</manifest>
