@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "803852709061-tufs6f50kthhejjkbhm823csnpjcb02g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.vrml.happychildapp",
+            "certificate_hash": "49a3d445db6a77f12dde8747c091afd5559125cd"
+          }
+        },
+        {
           "client_id": "803852709061-8sis9fol0ml1k8q454adrg6hqg3kqhs6.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

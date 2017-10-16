@@ -23,6 +23,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Button;
 
 import com.example.vrml.happychildapp.HYC_Code.OPEN_CAMERA;
 import com.example.vrml.happychildapp.Jennifer_Code.Uitlity;
@@ -39,6 +40,8 @@ import java.util.List;
  */
 
 public class scrollActivity extends AppCompatActivity {
+    private TextView textView;
+    private Button button;
     private RecyclerView myRecyclerView;
     private GalleryAdapter myAdapter;
     private List<Integer> mDatas;
@@ -51,7 +54,7 @@ public class scrollActivity extends AppCompatActivity {
 
     //Firebase相關宣告
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("image");
+    DatabaseReference myRef = database.getReference("Upload");
 
     //HYC ' s Method
     OPEN_CAMERA openPhoto;
@@ -63,6 +66,7 @@ public class scrollActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.recycle);
+        button =(Button)findViewById(R.id.button);
         recycle_name = (TextView) findViewById(R.id.recycle_name);
         recycle_share = (TextView) findViewById(R.id.recycle_share);
         recycle_editText = (EditText) findViewById(R.id.recycle_editText);
@@ -91,6 +95,11 @@ public class scrollActivity extends AppCompatActivity {
         myRecyclerView.setAdapter(myAdapter);
         super.onCreate(savedInstanceState);
 
+    }
+    public void buget(View view) {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference();//屬性命名為message
+        myRef.child("Upload").child(recycle_editText.getText().toString()).child("PotoName").setValue(recycle_editText.getText().toString());
     }
 
     private void initData() {
@@ -213,9 +222,10 @@ public class scrollActivity extends AppCompatActivity {
                 Log.e("DEBUG", "Line 214 Bitmap" + bitmap.toString());
 
                 //RETURN TO 信慈Firebase
+                myRef.child(recycle_editText.getText().toString()).child("pic").setValue(Uitlity.BitmapToString(bitmap));
                // myRef.setValue(Uitlity.BitmapToString(bitmap));
 //                Uitlity.BitmapToString(bitmap);
-                Log.e("DEBUG", "Line 211 BitmapToString" + Uitlity.BitmapToString(bitmap));
+               // Log.e("DEBUG", "Line 211 BitmapToString" + Uitlity.BitmapToString(bitmap));
 
             }
         }

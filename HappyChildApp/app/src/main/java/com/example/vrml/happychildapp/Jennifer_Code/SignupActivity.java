@@ -19,7 +19,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class SignUpActivity extends AppCompatActivity {
+public class SignupActivity extends AppCompatActivity {
 
     private Button button;
     private EditText etemail;
@@ -52,7 +52,7 @@ public class SignUpActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SignUpActivity.this, SignInActivity.class));
+                startActivity(new Intent(SignupActivity.this, SignInActivity.class));
             }
         });
     }
@@ -70,7 +70,7 @@ public class SignUpActivity extends AppCompatActivity {
             Toast.makeText(this, "password can't be empty and less than six words", Toast.LENGTH_SHORT).show();
             return;
         }
-        progressDialog = ProgressDialog.show(SignUpActivity.this, "", "註冊用戶中...", false, false);
+        progressDialog = ProgressDialog.show(SignupActivity.this, "", "註冊用戶中...", false, false);
         firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<com.google.firebase.auth.AuthResult>() {
                     @Override
@@ -79,7 +79,7 @@ public class SignUpActivity extends AppCompatActivity {
                             SendMail();
                         } else {
                             Log.e("DEBUG", "Sign-in Failed: " + task.getException().getMessage());
-                            Toast.makeText(SignUpActivity.this, "註冊失敗!請再試一次!!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignupActivity.this, "註冊失敗!請再試一次!!", Toast.LENGTH_SHORT).show();
                         }
                         progressDialog.dismiss();
                     }
@@ -87,7 +87,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void SendMail() {
-        final ProgressDialog EmailDialog = ProgressDialog.show(SignUpActivity.this, "", "驗證信寄出中...", false, false);
+        final ProgressDialog EmailDialog = ProgressDialog.show(SignupActivity.this, "", "驗證信寄出中...", false, false);
 
         FirebaseUser user = firebaseAuth.getCurrentUser();
         if (user != null) {
@@ -95,12 +95,12 @@ public class SignUpActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<Void> task) {
                     EmailDialog.dismiss();
                     if (task.isSuccessful()) {
-                        Toast.makeText(SignUpActivity.this, "驗證信寄出成功!!", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(SignUpActivity.this, SignInActivity.class));
-                        SignUpActivity.this.finish();
+                        Toast.makeText(SignupActivity.this, "驗證信寄出成功!!", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(SignupActivity.this, SignInActivity.class));
+                        SignupActivity.this.finish();
                     } else {
                         Log.e("TAG", task.toString());
-                        Toast.makeText(SignUpActivity.this, "驗證信寄出失敗!!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignupActivity.this, "驗證信寄出失敗!!", Toast.LENGTH_SHORT).show();
                     }
                 }
 
